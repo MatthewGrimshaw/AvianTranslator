@@ -33,8 +33,6 @@ $objectId = (Get-AzADServicePrincipal -DisplayName $appName).Id
 New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName Contributor
 
 $clientId = (Get-AzADApplication -DisplayName $appName).Id
-$subscriptionId = (Get-AzContext).Subscription.Id
-$tenantId = (Get-AzContext).Subscription.TenantId
 
 #Add federated credentials
 New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name "$($githubRepoName)-Production" -Subject "repo:$($githubOrgName)/$($githubRepoName):environment:Production"
@@ -44,7 +42,7 @@ New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://Az
 New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name "$($githubRepoName)-PR" -Subject "repo:$($githubOrgName)/$($githubRepoName):pull_request"
 New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name "$($githubRepoName)-Main" -Subject "repo:$($githubOrgName)/$($githubRepoName):ref:refs/heads/main"
 New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name "$($githubRepoName)-Branch" -Subject "repo:$($githubOrgName)/$($githubRepoName):ref:refs/heads/branch"
-
+New-AzADAppFederatedCredential -ApplicationObjectId $clientId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com' -Name "$($githubRepoName)-Mainnbs" -Subject "repo:$($githubOrgName)/$($githubRepoName):ref:refs/heads/main"
 #install PSSodium if missing
 If(!(Get-Module -ListAvailable -Name PSSodium)){
     install-module PSSodium
@@ -56,7 +54,6 @@ $clientId = (Get-AzADApplication -DisplayName $appName).AppId
 $subscriptionId = (Get-AzContext).Subscription.Id
 $tenantId = (Get-AzContext).Subscription.TenantId
 
-$githubPat = "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"
 $headers = @{Authorization = "token " + $githubPat}
 
 Invoke-RestMethod –Method get –Uri "https://api.github.com/repos/$($githubOrgName)/$($githubRepoName)/actions/secrets" –Headers $headers
