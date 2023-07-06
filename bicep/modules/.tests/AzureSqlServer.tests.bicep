@@ -5,10 +5,16 @@ param location string = resourceGroup().location
 module test_required_params '../AzureSqlServer.bicep' = {
   name: 'test_required_params'
   params: {
-    azureSqlName: 'ssqlserver1'
+    logAnalyticsWorkspaceName: 'mgmtworkspace'
+    logAnalyticsResourceGroup: 'management'
+    azureSqlName: 'sqlserver1'
     location: location
     aadUsername: 'username@email.com'
     aadSid: 'longsid'
-    databaseName: 'tesdb1'
-  }
-}
+    databaseName: 'testdb1'
+    sqliagnosticSettingsName: 'sqlDiagnosticSettingsName'
+    tags:{
+      env: 'prod'
+      }
+    }
+ }

@@ -21,8 +21,22 @@
                 "secretName": "aadSid"
             }
         },
+        "sqlDiagnosticSettingsName": {
+            "value": "sqlDiagnosticSettings"
+        },
+        "logAnlayticsWorkspaceName" {
+            "value": "mgmtworkspace"
+        },
+        "logAnalayticsResourceGroup" {
+            "value": "management"
+        },
         "databaseName": {
             "value": "aviantranslatordb"
+        },
+        "tags" :{
+            "value": {
+                "env": "prod"
+            }
         }
     }
 }

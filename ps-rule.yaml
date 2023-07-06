@@ -2,3 +2,7 @@ configuration:
   # Enable automatic expansion of Azure parameter and BICEP files
   AZURE_PARAMETER_FILE_EXPANSION: true
   AZURE_BICEP_FILE_EXPANSION: true
+
+input:
+  pathIgnore:
+    - 'bicep/modules/*.bicep'
