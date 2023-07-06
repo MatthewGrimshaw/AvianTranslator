@@ -1,5 +1,9 @@
 name: Run Azure Login with OpenID Connect
-on: [push]
+on:
+  push:
+    branches:
+      - none
+      # - main
 
 permissions:
       id-token: write

@@ -1,0 +1,3 @@
+configuration:
+  # Enable automatic expansion of Azure parameter files
+  AZURE_PARAMETER_FILE_EXPANSION: true
