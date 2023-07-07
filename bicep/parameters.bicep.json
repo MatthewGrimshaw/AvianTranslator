@@ -24,10 +24,10 @@
         "sqlDiagnosticSettingsName": {
             "value": "sqlDiagnosticSettings"
         },
-        "logAnlayticsWorkspaceName" {
+        "logAnlayticsWorkspaceName": {
             "value": "mgmtworkspace"
         },
-        "logAnalayticsResourceGroup" {
+        "logAnalayticsResourceGroup": {
             "value": "management"
         },
         "databaseName": {
