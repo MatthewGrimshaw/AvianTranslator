@@ -67,7 +67,7 @@ resource sqlatp 'Microsoft.Sql/servers/advancedThreatProtectionSettings@2022-05-
   }
 }
 
-resource assessment 'Microsoft.Sql/servers/sqlVulnerabilityAssessments@2022-05-01-preview' {
+resource assessment 'Microsoft.Sql/servers/sqlVulnerabilityAssessments@2022-05-01-preview' = {
   parent: azureSql
   name: 'Default'
   properties: {
@@ -122,7 +122,7 @@ resource auditingSettings 'Microsoft.Sql/servers/auditingSettings@2021-11-01-pre
   }
 }
 
-resource devOpsAuditingSettings 'Microsoft.Sql/servers/devOpsAuditingSettings@2021-11-01-preview' {
+resource devOpsAuditingSettings 'Microsoft.Sql/servers/devOpsAuditingSettings@2021-11-01-preview' = {
   parent: azureSql
   name: 'default'
   properties: {
