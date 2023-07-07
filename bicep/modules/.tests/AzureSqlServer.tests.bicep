@@ -11,7 +11,7 @@ module test_required_params '../AzureSqlServer.bicep' = {
     location: location
     aadUsername: 'username@email.com'
     aadSid: 'longsid'
-    databaseName: 'testdb1'
+    databaseName: 'testdb'
     sqliagnosticSettingsName: 'sqlDiagnosticSettingsName'
     tags:{
       env: 'prod'
