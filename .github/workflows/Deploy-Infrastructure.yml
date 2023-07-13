@@ -87,3 +87,11 @@ jobs:
             --resource-group ${{ env.RESOURCE_GROUP_NAME}}
             --template-file ${{ github.workspace }}/bicep/modules/azure-sqlserver.bicep
             --parameters ${{ github.workspace }}/bicep/parameters.azure-sqlserver.json
+
+      - name: Deploy Azure SQL Server
+        run: >
+            az deployment group create
+            --name AzureSqlServer-create
+            --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+            --template-file ${{ github.workspace }}/bicep/modules/azure-sqlserver.bicep
+            --parameters ${{ github.workspace }}/bicep/parameters.azure-sqlserver.json
