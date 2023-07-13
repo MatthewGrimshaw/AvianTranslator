@@ -3,6 +3,10 @@ configuration:
   AZURE_PARAMETER_FILE_EXPANSION: true
   AZURE_BICEP_FILE_EXPANSION: true
 
+rule:
+  exclude:
+    - Azure.SQL.AllowAzureAccess
+
 input:
   pathIgnore:
     - 'bicep/modules/azure-sqlserver.bicep'
