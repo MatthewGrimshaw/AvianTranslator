@@ -22,7 +22,7 @@
             }
         },
         "sqlDiagnosticSettingsName": {
-            "value": "sqlDiagnosticSettings"
+            "value": "sqlDiagnosticSetting"
         },
         "logAnlayticsWorkspaceName": {
             "value": "mgmtworkspace"

@@ -54,8 +54,6 @@ jobs:
           --name avianTranslator
           --resource-group ${{ env.RESOURCE_GROUP_NAME}}
           --template-file ${{ github.workspace }}/bicep/modules/AzureSqlServer.bicep
-          --template-file ${{ github.workspace }}/bicep/modules/AzureSqlServer.bicep
-
           --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
 
       - name: What-if
