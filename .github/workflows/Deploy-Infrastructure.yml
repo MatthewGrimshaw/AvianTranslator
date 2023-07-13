@@ -68,6 +68,7 @@ jobs:
         run: >
           az deployment group validate
           --name AzureSqlServer-validate
+          --resource-group ${{ env.RESOURCE_GROUP_NAME}}
           --template-file ${{ github.workspace }}/bicep/modules/azure-sqlserver.bicep
           --parameters ${{ github.workspace }}/bicep/parameters.azure-sqlserver.json
 
