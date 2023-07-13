@@ -6,5 +6,8 @@ module test_required_params '../resource-group.bicep' = {
   params: {
     resourceGroupName: 'rgname'
     location: 'westeurope'
+    tags:{
+      env: 'prod'
+      }
  }
 }

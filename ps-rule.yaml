@@ -5,4 +5,5 @@ configuration:
 
 input:
   pathIgnore:
-    - 'bicep/modules/AzureSqlServer.bicep'
+    - 'bicep/modules/azure-sqlserver.bicep'
+    - 'bicep/modules/resource-group.bicep'
