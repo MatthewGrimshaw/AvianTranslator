@@ -58,6 +58,15 @@ resource sqlserverName_AllowAMyIp 'Microsoft.Sql/servers/firewallRules@2014-04-0
   }
 }
 
+resource sqlserverName_AllowAzureServices 'Microsoft.Sql/servers/firewallRules@2014-04-01' = {
+  name: 'AllowAzureServices'
+  parent: azureSql
+  properties: {
+    endIpAddress: '0.0.0.0'
+    startIpAddress: '0.0.0.0'
+  }
+}
+
 
 resource sqlatp 'Microsoft.Sql/servers/advancedThreatProtectionSettings@2022-05-01-preview' = {
   name: 'Default'
@@ -81,7 +90,7 @@ resource defenderforcloud 'Microsoft.Sql/servers/securityAlertPolicies@2022-05-0
   properties: {
     emailAccountAdmins: true
     emailAddresses: [
-      'string'
+      aadUsername
     ]
     state: 'Enabled'
   }
