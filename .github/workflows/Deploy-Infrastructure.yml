@@ -48,7 +48,7 @@ jobs:
           az deployment group validate
           --name avianTranslator
           --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-          --template-file ${{ github.workspace }}/bicep/modules/AzureSQL.bicep
+          --template-file ${{ github.workspace }}/bicep/modules/AzureSQLServer.bicep
           --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
 
       - name: What-if
@@ -56,5 +56,5 @@ jobs:
             az deployment group what-if
             --name avianTranslator
             --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-            --template-file ${{ github.workspace }}/bicep/modules/AzureSQL.bicep
+            --template-file ${{ github.workspace }}/bicep/modules/AzureSQLServer.bicep
             --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
