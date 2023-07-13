@@ -6,7 +6,7 @@ param aadUsername string
 param aadSid string
 param databaseName string
 param tags object
-param sqliagnosticSettingsName string
+param sqlDiagnosticSettingsName string
 param logAnalyticsWorkspaceName string
 param logAnalyticsResourceGroup string
 
@@ -89,7 +89,7 @@ resource defenderforcloud 'Microsoft.Sql/servers/securityAlertPolicies@2022-05-0
 
 resource diagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: sqlDatabase
-  name: sqliagnosticSettingsName
+  name: sqlDiagnosticSettingsName
   properties: {
     workspaceId: logAnalyticsWorkspace.id
     logs: [
