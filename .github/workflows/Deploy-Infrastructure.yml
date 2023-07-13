@@ -48,18 +48,34 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Validate
+      - name: Validate Azure Resource Group
+        run: >
+            az deployment sub validate
+            --name reource-group-validate
+            --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+            --template-file ${{ github.workspace }}/bicep/modules/resource-group.bicep
+            --parameters ${{ github.workspace }}/bicep/parameters.resource-group.json
+
+      - name: What-if Azure Resource Group
+        run: >
+              az deployment sub what-if
+              --name resource-group-what-if
+              --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+              --template-file ${{ github.workspace }}/bicep/modules/resource-group.bicep
+              --parameters ${{ github.workspace }}/bicep/parameters.resource-group.json
+
+      - name: Validate Azure SQL Server
         run: >
           az deployment group validate
-          --name avianTranslator
+          --name AzureSqlServer-validate
           --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-          --template-file ${{ github.workspace }}/bicep/modules/AzureSqlServer.bicep
-          --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
+          --template-file ${{ github.workspace }}/bicep/modules/azure-sqlserver.bicep
+          --parameters ${{ github.workspace }}/bicep/parameters.azure-sqlserver.json
 
-      - name: What-if
+      - name: What-if Azure SQL Server
         run: >
             az deployment group what-if
-            --name avianTranslator
+            --name AzureSqlServer-what-if
             --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-            --template-file ${{ github.workspace }}/bicep/modules/AzureSQLServer.bicep
-            --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
+            --template-file ${{ github.workspace }}/bicep/modules/azure-sqlserver.bicep
+            --parameters ${{ github.workspace }}/bicep/parameters.azure-sqlserver.json

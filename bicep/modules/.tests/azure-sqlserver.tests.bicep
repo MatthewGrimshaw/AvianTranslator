@@ -2,7 +2,7 @@
 param location string = resourceGroup().location
 
 // Test with only required parameters
-module test_required_params '../AzureSqlServer.bicep' = {
+module test_required_params '../azure-sqlserver.bicep' = {
   name: 'test_required_params'
   params: {
     logAnalyticsWorkspaceName: 'mgmtworkspace'
