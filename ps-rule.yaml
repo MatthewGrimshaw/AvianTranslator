@@ -7,3 +7,4 @@ input:
   pathIgnore:
     - 'bicep/modules/azure-sqlserver.bicep'
     - 'bicep/modules/resource-group.bicep'
+    - 'MicroServices/*'

@@ -64,6 +64,14 @@ jobs:
               --template-file ${{ github.workspace }}/bicep/modules/resource-group.bicep
               --parameters ${{ github.workspace }}/bicep/parameters.resource-group.json
 
+      - name: Deploy Azure Resource Group
+        run: >
+              az deployment sub create
+              --name resource-group-create
+              --location ${{ env.LOCATION}}
+              --template-file ${{ github.workspace }}/bicep/modules/resource-group.bicep
+              --parameters ${{ github.workspace }}/bicep/parameters.resource-group.json
+
       - name: Validate Azure SQL Server
         run: >
           az deployment group validate
