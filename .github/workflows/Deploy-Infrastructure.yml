@@ -48,7 +48,6 @@ jobs:
           az deployment group validate
           --name avianTranslator
           --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-          --location ${{ env.LOCATION}}
           --template-file ${{ github.workspace }}/bicep/modules/AzureSQL.bicep
           --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
 
@@ -57,6 +56,5 @@ jobs:
             az deployment group what-if
             --name avianTranslator
             --resource-group ${{ env.RESOURCE_GROUP_NAME}}
-            --location ${{ env.LOCATION}}
             --template-file ${{ github.workspace }}/bicep/modules/AzureSQL.bicep
             --parameters ${{ github.workspace }}/bicep/parameters.bicep.json
