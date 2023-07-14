@@ -9,6 +9,9 @@ param tags object
 param sqlDiagnosticSettingsName string
 param logAnalyticsWorkspaceName string
 param logAnalyticsResourceGroup string
+param administratorLogin string
+@secure()
+param administratorLoginPassword string
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-08-01' existing = {
   name: logAnalyticsWorkspaceName
@@ -23,6 +26,8 @@ resource azureSql 'Microsoft.Sql/servers@2022-05-01-preview' = {
     type: 'SystemAssigned'
   }
   properties: {
+    administratorLogin: administratorLogin
+    administratorLoginPassword: administratorLoginPassword
     administrators: {
       administratorType: 'ActiveDirectory'
       azureADOnlyAuthentication: true

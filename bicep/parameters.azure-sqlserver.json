@@ -21,6 +21,17 @@
                 "secretName": "aadSid"
             }
         },
+        "administratorLogin": {
+            "value": "azuresqladmin"
+        },
+        "administratorLoginPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/6a509a0a-f0b6-4e8c-88d3-7108d0f37309/resourceGroups/Management/providers/Microsoft.KeyVault/vaults/managementqwrty"
+                },
+                "secretName": "sqlAdminPassword"
+            }
+        },
         "sqlDiagnosticSettingsName": {
             "value": "sqlDiagnosticSetting"
         },

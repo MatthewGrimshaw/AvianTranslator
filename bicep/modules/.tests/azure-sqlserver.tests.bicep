@@ -11,6 +11,8 @@ module test_required_params '../azure-sqlserver.bicep' = {
     location: location
     aadUsername: 'username@email.com'
     aadSid: 'longsid'
+    administratorLogin: 'myAdminUSerName'
+    administratorLoginPassword: 'myPassword'
     databaseName: 'testdb'
     sqlDiagnosticSettingsName: 'sqlDiagnosticSettingsName'
     tags:{

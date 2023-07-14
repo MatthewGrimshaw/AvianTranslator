@@ -38,3 +38,13 @@ $connectionString = "Data Source=localhost;Initial Catalog=AvianTranslator;Integ
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $connectionString
 $sqlConnection.Open()
 $sqlConnection.Close()
+
+#get connection string
+# Get connection string for the Azure database
+$ServerName  = "aviantranslatorsql"
+$DatabaseName = "aviantranslatordb"
+$connstring=$(az sql db show-connection-string --name $DatabaseName --server $ServerName --client ado.net --auth-type ADIntegrated --output tsv)
+
+Connect-AzAccount -Tenant '4f8875af-ac0b-46ee-8a73-3634138f5818'
+$access_token = (Get-AzAccessToken -ResourceUrl https://database.windows.net).Token
+Invoke-Sqlcmd -ServerInstance $($ServerName).database.windows.net -Database $DatabaseName -AccessToken $access_token -TrustServerCertificate -query 'SELECT * FROM sys.databases'
