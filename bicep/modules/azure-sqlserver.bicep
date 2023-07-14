@@ -30,9 +30,9 @@ resource azureSql 'Microsoft.Sql/servers@2022-05-01-preview' = {
     administratorLoginPassword: administratorLoginPassword
     administrators: {
       administratorType: 'ActiveDirectory'
-      azureADOnlyAuthentication: false
+      azureADOnlyAuthentication: true
       login: aadUsername
-      principalType: 'User'
+      principalType: 'Group'
       sid: aadSid
       tenantId: tenant().tenantId
     }
