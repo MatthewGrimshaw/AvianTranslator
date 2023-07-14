@@ -66,7 +66,7 @@ $array = New-Object 'UInt32[]' 4
 $sid = "S-1-12-1-$array".Replace(' ', '-')
 
 # write SID to Key Vault
-$secretvalueSid = ConvertTo-SecureString $sid -AsPlainText -Force
+$secretvalueSid = ConvertTo-SecureString $sqlAdminsGroup.Id -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'aadSid' -SecretValue $secretvalueSid
 
 $secretvalueaadObjectID = ConvertTo-SecureString $sqlAdminsGroup.Id -AsPlainText -Force
