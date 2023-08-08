@@ -41,6 +41,9 @@
         "logAnalyticsResourceGroup": {
             "value": "management"
         },
+        "emailAddresses": {
+            "value": ["matgri@microsoft.com"]
+        },
         "databaseName": {
             "value": "aviantranslatordb"
         },

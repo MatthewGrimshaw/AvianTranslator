@@ -7,7 +7,7 @@ module test_required_params '../azure-sqlserver.bicep' = {
   params: {
     logAnalyticsWorkspaceName: 'mgmtworkspace'
     logAnalyticsResourceGroup: 'management'
-    azureSqlName: 'sqlserver'
+    azureSqlName: 'sqlserver.'
     location: location
     aadUsername: 'username@email.com'
     aadSid: 'longsid'
@@ -15,6 +15,9 @@ module test_required_params '../azure-sqlserver.bicep' = {
     administratorLoginPassword: 'myPassword'
     databaseName: 'testdb'
     sqlDiagnosticSettingsName: 'sqlDiagnosticSettingsName'
+    emailAddresses: [
+      'username@email.com'
+    ]
     tags:{
       env: 'prod'
       }

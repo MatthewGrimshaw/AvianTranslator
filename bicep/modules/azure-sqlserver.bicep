@@ -12,6 +12,7 @@ param logAnalyticsResourceGroup string
 param administratorLogin string
 @secure()
 param administratorLoginPassword string
+param emailAddresses array
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-08-01' existing = {
   name: logAnalyticsWorkspaceName
@@ -94,9 +95,7 @@ resource defenderforcloud 'Microsoft.Sql/servers/securityAlertPolicies@2022-05-0
   parent: azureSql
   properties: {
     emailAccountAdmins: true
-    emailAddresses: [
-      aadUsername
-    ]
+    emailAddresses: emailAddresses
     state: 'Enabled'
   }
 }
