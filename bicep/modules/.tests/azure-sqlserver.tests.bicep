@@ -13,7 +13,7 @@ module test_required_params '../azure-sqlserver.bicep' = {
     aadSid: 'longsid'
     administratorLogin: 'myAdminUSerName'
     administratorLoginPassword: 'myPassword'
-    databaseName: 'testdbs'
+    databaseName: 'testdb'
     sqlDiagnosticSettingsName: 'sqlDiagnosticSettingsName'
     emailAddresses: [
       'username@email.com'
