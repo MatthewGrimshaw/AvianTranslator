@@ -45,6 +45,17 @@ $ServerName  = "aviantranslatorsql"
 $DatabaseName = "aviantranslatordb"
 $connstring=$(az sql db show-connection-string --name $DatabaseName --server $ServerName --client ado.net --auth-type ADIntegrated --output tsv)
 
-Connect-AzAccount -Tenant '4f8875af-ac0b-46ee-8a73-3634138f5818'
+Connect-AzAccount -Tenant 'XXXXXXX-XXXX--XXXX-XXXX-XXXXXXXXXXX'
 $access_token = (Get-AzAccessToken -ResourceUrl https://database.windows.net).Token
 Invoke-Sqlcmd -ServerInstance $($ServerName).database.windows.net -Database $DatabaseName -AccessToken $access_token -TrustServerCertificate -query 'SELECT * FROM sys.databases'
+
+
+## Create Sql File
+$file = Get-Content -Path .\AvianTranslator.txt
+$sqlStatement = @()
+foreach ($line in $file){
+    $formattedLine = $line.replace(";","','")
+    $sqlStatement += "INSERT INTO [dbo].[Translation] (DanishName, LatinName, EnglishName) VALUES ('$formattedLine')"
+}
+
+$sqlStatement | Out-File .\AvianTranslator.sql

@@ -9,7 +9,7 @@ GO
 
 IF NOT EXISTS(SELECT 1 FROM sys.tables WHERE name = 'Translation' AND type = 'U')
 BEGIN
-    CREATE TABLE Translation (        
+    CREATE TABLE Translation (
         DanishName nvarchar(255),
         LatinName nvarchar(255) NOT NULL PRIMARY KEY,
         EnglishName nvarchar(255)
