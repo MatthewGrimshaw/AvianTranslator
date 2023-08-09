@@ -100,5 +100,5 @@ jobs:
         uses: azure/sql-action@v2
         with:
             connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-            path: ${{ github.workspace }}/Database/AvianTranslator.dacpac
+            path: ${{ github.workspace }}/Database/AvianTranslatorDB.dacpac
             action: 'Publish'
