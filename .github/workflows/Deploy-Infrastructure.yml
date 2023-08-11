@@ -108,3 +108,27 @@ jobs:
         with:
             connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
             path: ${{ github.workspace }}/Database/AvianTranslator.sql
+
+      - name: Validate Azure Web App
+        run: >
+            az deployment group validate
+            --name AzureWebApp-validate
+            --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+            --template-file ${{ github.workspace }}/bicep/modules/azure-webapp.bicep
+            --parameters ${{ github.workspace }}/bicep/parameters.azure-webapp.json
+
+      - name: What-if Azure WebApp
+        run: >
+            az deployment group what-if
+            --name AzureWebApp-what-if
+            --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+            --template-file ${{ github.workspace }}/bicep/modules/azure-webapp.bicep
+            --parameters ${{ github.workspace }}/bicep/parameters.azure-webapp.json
+
+      - name: Deploy Azure Web App
+        run: >
+              az deployment group create
+              --name AzureWebApp-create
+              --resource-group ${{ env.RESOURCE_GROUP_NAME}}
+              --template-file ${{ github.workspace }}/bicep/modules/azure-webapp.bicep
+              --parameters ${{ github.workspace }}/bicep/parameters.azure-webapp.json
