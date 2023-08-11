@@ -30,11 +30,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: echo
-        run: |
-            echo ${{ github.workspace }}
-            echo $GITHUB_WORKSPACE
-
       # Analyze Azure resources using PSRule for Azure
       - name: Analyze Azure template files
         uses: microsoft/ps-rule@v2.9.0
