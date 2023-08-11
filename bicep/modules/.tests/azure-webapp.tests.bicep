@@ -7,7 +7,7 @@ module test_required_params '../azure-webapp.bicep' = {
   params: {
     webAppName: 'mywebapp'
     location: location
-    sku: 'F1'
+    sku: 'S1'
     linuxFxVersion: 'node|14-lts'
     tags:{
       env: 'prod'

@@ -5,6 +5,7 @@ param location string
 // param repositoryUrl string
 // param branch string
 param tags object
+
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 var webSiteName = toLower('wapp-${webAppName}')
 
@@ -17,7 +18,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   }
   sku: {
     name: sku
-    capacity: 1
+    capacity: 2
   }
   kind: 'linux'
 }
@@ -26,10 +27,19 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   name: webSiteName
   location: location
   tags: tags
+  identity: {
+    type: 'SystemAssigned'
+  }
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: linuxFxVersion
+      minTlsVersion: '1.2'
+      ftpsState: 'FtpsOnly'
+      alwaysOn: true
+      http20Enabled: true
+      netFrameworkVersion: 'v6.0'
+      healthCheckPath: '/api'
     }
   }
 }
