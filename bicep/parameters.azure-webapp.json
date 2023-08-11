@@ -14,6 +14,9 @@
         "linuxFxVersion" : {
             "value": "node|14-lts"
         },
+        "appServicePlanName" : {
+            "value": "AppServicePlan-AvianTranslator"
+        },
         "tags" :{
             "value": {
                 "env": "prod"

@@ -5,9 +5,9 @@ param location string
 // param repositoryUrl string
 // param branch string
 param tags object
+param appServicePlanName string
 
-var appServicePlanName = toLower('AppServicePlan-${webAppName}')
-var webSiteName = toLower('wapp-${webAppName}')
+
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   name: appServicePlanName
@@ -24,7 +24,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
 }
 
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
-  name: webSiteName
+  name: webAppName
   location: location
   tags: tags
   identity: {
