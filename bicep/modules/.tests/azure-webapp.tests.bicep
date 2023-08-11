@@ -9,7 +9,7 @@ module test_required_params '../azure-webapp.bicep' = {
     location: location
     sku: 'S1'
     linuxFxVersion: 'node|14-lts'
-    appServicePlanName: 'AppServicePlan-AvianTranslators'
+    appServicePlanName: 'AppServicePlan-AvianTranslator'
     tags:{
       env: 'prod'
       }
