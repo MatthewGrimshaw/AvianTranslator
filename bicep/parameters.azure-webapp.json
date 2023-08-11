@@ -8,16 +8,16 @@
         "location": {
             "value": "westeurope"
         },
-        "sku" : {
+        "sku": {
             "value": "S1"
         },
-        "linuxFxVersion" : {
+        "linuxFxVersion": {
             "value": "node|14-lts"
         },
-        "appServicePlanName" : {
+        "appServicePlanName": {
             "value": "AppServicePlan-AvianTranslator"
         },
-        "tags" :{
+        "tags": {
             "value": {
                 "env": "prod"
             }

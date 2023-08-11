@@ -47,7 +47,7 @@
         "databaseName": {
             "value": "aviantranslatordb"
         },
-        "tags" :{
+        "tags": {
             "value": {
                 "env": "prod"
             }
