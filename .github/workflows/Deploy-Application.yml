@@ -68,10 +68,7 @@ jobs:
       - name: Update Database
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         run: |
-          dotnet tool install --global dotnet-ef
-          dotnet ef database update
-        env:
-          ConnectionStrings__MyDbConnection: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+          az webapp config connection-string set --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --connection-string-type SQLAzure --settings ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
 
       - name: Swap to production slot
         run: |
