@@ -12,7 +12,7 @@ on:
 # 2. Change these variables for your configuration:
 env:
   AZURE_WEBAPP_NAME: AvianTranslator    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './MicroServices/AvianTranslator'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './MicroServices/AvianTranslator/'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '7.0'           # set this to the dot net version to use
   AZURE_RESOURCEGROUP_NAME: AvianTranslator # set this to your preferred resource group name
   SQLSERVER_NAME: aviantranslatorsql                          # set this to your preferred sql server name
@@ -34,6 +34,7 @@ jobs:
 
       # Run dotnet build and publish
       - name: dotnet build and publish
+        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         run: |
           dotnet build --configuration Release
           dotnet publish -c Release -o myapp
