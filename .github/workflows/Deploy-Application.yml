@@ -68,7 +68,7 @@ jobs:
       - name: Update conenction string
         uses: Azure/appservice-settings@v1
         with:
-          app-name:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: staging
           connection-strings-json: |
             [
