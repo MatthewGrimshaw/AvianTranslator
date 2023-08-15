@@ -75,7 +75,7 @@ jobs:
               {
                 "name": "AvianTranslatorCon",
                 "value": "${{ secrets.AZURE_SQL_CONNECTION_STRING }}",
-                "type": "SQLAzure"
+                "type": "SQLAzure",
                 "slotSetting": false
               }
             ]
