@@ -17,6 +17,21 @@
         "appServicePlanName": {
             "value": "AppServicePlan-AvianTranslator"
         },
+        "appInsightsName": {
+            "value": ""
+        },
+        "type": {
+            "value": "web"
+        },
+        "Request_Source": {
+            "value": "CustomDeployment"
+        },
+        "workspaceResourceId": {
+            "value": "/subscriptions/6a509a0a-f0b6-4e8c-88d3-7108d0f37309/resourceGroups/Management/providers/Microsoft.OperationalInsights/workspaces/mgmtworkspace"
+        },
+        "diagnosticSettingsName": {
+           "value": "diagnosticSettingsName"
+        },
         "tags": {
             "value": {
                 "env": "prod"
