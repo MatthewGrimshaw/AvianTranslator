@@ -23,7 +23,7 @@
         "type": {
             "value": "web"
         },
-        "Request_Source": {
+        "requestSource": {
             "value": "CustomDeployment"
         },
         "workspaceResourceId": {

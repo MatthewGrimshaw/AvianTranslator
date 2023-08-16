@@ -9,6 +9,7 @@ param tags object
 param appServicePlanName string
 param diagnosticSettingsName string
 
+
 @description('Type of app you are deploying. This field is for legacy reasons and will not impact the type of App Insights resource you deploy.')
 param type string
 
