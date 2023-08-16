@@ -6,6 +6,7 @@ on:
 # Checks if any concurrent jobs under the same pull request or branch are being executed
 concurrency:
   group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
 
 permissions:
     id-token: write
