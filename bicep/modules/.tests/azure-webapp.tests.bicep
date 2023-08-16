@@ -15,8 +15,6 @@ module test_required_params '../azure-webapp.bicep' = {
     workspaceResourceId: 'longComplicatedString'
     type: 'web'
     diagnosticSettingsName: 'diagnosticSettingsName'
-    workspaceId: 'bigLongString'
-
     tags:{
       env: 'prod'
       }
