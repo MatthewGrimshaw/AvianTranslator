@@ -3,6 +3,10 @@ name: Build and deploy app
 on:
   push
 
+# Checks if any concurrent jobs under the same pull request or branch are being executed
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+
 permissions:
     id-token: write
     contents: read
