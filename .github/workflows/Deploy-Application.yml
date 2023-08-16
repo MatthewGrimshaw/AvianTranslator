@@ -1,7 +1,17 @@
 name: Build and deploy app
 
 on:
-  push
+  push:
+    branches:
+      - main
+    paths:
+      - MicroServices/AvianTranslator/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - MicroServices/AvianTranslator/**
+  workflow_dispatch:
 
 # Checks if any concurrent jobs under the same pull request or branch are being executed
 concurrency:
