@@ -24,7 +24,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: appInsightsName
   location: location
   tags: tags
-  kind: 'other'
+  kind: type
   properties: {
     Application_Type: type
     Flow_Type: 'Bluefield'
