@@ -5,7 +5,7 @@ param location string = resourceGroup().location
 module test_required_params '../azure-webapp.bicep' = {
   name: 'test_required_params'
   params: {
-    webAppName: 'mywebapp'
+    webAppName: 'mywebapps'
     appInsightsName: 'myAppInsights'
     location: location
     sku: 'S1'
