@@ -12,7 +12,7 @@
             "value": "S1"
         },
         "linuxFxVersion": {
-            "value": "node|14-lts"
+            "value": "DOTNETCORE|7.0"
         },
         "appServicePlanName": {
             "value": "AppServicePlan-AvianTranslator"

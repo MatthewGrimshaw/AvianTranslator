@@ -64,7 +64,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
       ftpsState: 'FtpsOnly'
       alwaysOn: true
       http20Enabled: true
-      netFrameworkVersion: 'v6.0'
+      netFrameworkVersion: 'v7.0'
       healthCheckPath: '/swagger/index.html'
       appSettings:[
         {

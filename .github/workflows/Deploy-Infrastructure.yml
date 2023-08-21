@@ -133,7 +133,7 @@ jobs:
 
       - name: Grant Access to SQL for Web Apps Managed Identity
         run: |
-          $groupid=(az ad group list --display-name ${{ env.SQL_ADMINS_GROUP  }} --query [].id --output tsv)
-          $msiobjectid=(az webapp identity show --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --query principalId --output tsv)
+          groupid=$(az ad group list --display-name ${{ env.SQL_ADMINS_GROUP  }} --query [].id --output tsv)
+          msiobjectid=$(az webapp identity show --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --name ${{ env.AZURE_WEBAPP_NAME }} --query principalId --output tsv)
           az ad group member add --group $groupid --member-id $msiobjectid
           az ad group member list -g $groupid
