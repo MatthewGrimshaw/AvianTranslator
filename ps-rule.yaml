@@ -6,6 +6,7 @@ configuration:
 rule:
   exclude:
     - Azure.SQL.AllowAzureAccess
+    - Azure.SQL.DefenderCloud
 
 input:
   pathIgnore:

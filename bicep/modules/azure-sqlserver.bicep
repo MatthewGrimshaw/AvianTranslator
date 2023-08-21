@@ -93,6 +93,8 @@ resource assessment 'Microsoft.Sql/servers/sqlVulnerabilityAssessments@2022-05-0
   }
 }
 
+// This conflicts with Azure Policy and causes the provisioning to fail.
+/*
 resource defenderforcloud 'Microsoft.Sql/servers/securityAlertPolicies@2022-05-01-preview' = {
   name: 'Default'
   parent: azureSql
@@ -102,6 +104,7 @@ resource defenderforcloud 'Microsoft.Sql/servers/securityAlertPolicies@2022-05-0
     state: 'Enabled'
   }
 }
+*/
 
 resource diagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   scope: sqlDatabase
