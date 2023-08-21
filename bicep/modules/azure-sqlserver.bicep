@@ -74,6 +74,8 @@ resource sqlserverName_AllowAzureServices 'Microsoft.Sql/servers/firewallRules@2
 }
 
 
+// This conflicts with Azure Policy and causes the provisioning to fail.
+/*
 resource sqlatp 'Microsoft.Sql/servers/advancedThreatProtectionSettings@2022-05-01-preview' = {
   name: 'Default'
   parent: azureSql
@@ -81,6 +83,7 @@ resource sqlatp 'Microsoft.Sql/servers/advancedThreatProtectionSettings@2022-05-
     state: 'Enabled'
   }
 }
+*/
 
 resource assessment 'Microsoft.Sql/servers/sqlVulnerabilityAssessments@2022-05-01-preview' = {
   parent: azureSql
