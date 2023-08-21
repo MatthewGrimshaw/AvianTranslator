@@ -113,7 +113,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
   properties: {
     logs: [
       {
-        category: 'HTTP logs'
+        category: 'AppServiceHTTPLogs'
         enabled: true
         retentionPolicy: {
           days: 7
@@ -121,7 +121,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
         }
       }
       {
-        category: 'App Service Console Logs'
+        category: 'AppServiceConsoleLogs'
         enabled: true
         retentionPolicy: {
           days: 7
@@ -129,7 +129,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
         }
       }
       {
-        category: 'App Service Application Logs'
+        category: 'AppServiceAppLogs'
         enabled: true
         retentionPolicy: {
           days: 7
@@ -137,7 +137,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
         }
       }
       {
-        category: 'Access Audit Logs'
+        category: 'AppServiceAuditLogs'
         enabled: true
         retentionPolicy: {
           days: 7
@@ -145,7 +145,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
         }
       }
       {
-        category: 'IPSecurity Audit logs'
+        category: 'AppServiceIPSecAuditLogs'
         enabled: true
         retentionPolicy: {
           days: 7
@@ -153,7 +153,7 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
         }
       }
       {
-        category: 'App Service Platform logs'
+        category: 'AppServicePlatformLogs'
         enabled: true
         retentionPolicy: {
           days: 7
