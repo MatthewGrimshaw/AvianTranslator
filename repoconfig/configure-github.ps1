@@ -57,6 +57,8 @@ $members += (Get-AzADUser -Mail (Get-AzContext).Account.Id).Id
 $members += (Get-AzADServicePrincipal -DisplayName $appName).Id
 # Add members To Group
 Add-AzADGroupMember -TargetGroupObjectId $sqlAdminsGroup.Id -MemberObjectId $members
+# Add the Service Principal as Group Owner so that it can add managed identities to the group
+Add-AzureADGroupOwner -ObjectId $sqlAdminsGroup.Id -RefObjectId $member
 
 # Convert ObjectId to SID https://github.com/okieselbach/Intune/blob/master/Convert-AzureAdObjectIdToSid.ps1
 
