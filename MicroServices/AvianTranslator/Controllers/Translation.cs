@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using AvianTranslator.Models;
 
 
-namespace AvianTranslator.Controllers   
+namespace AvianTranslator.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -55,9 +53,10 @@ namespace AvianTranslator.Controllers
         [HttpGet("en/{englishName}")]
         public string getEnglishTranslation(string englishName)
         {
-            SqlConnection con = new SqlConnection(_configuration.GetConnectionString("AvianTranslatorCon").ToString());
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Translation WHERE EnglishName = '" + englishName + "'", con);
-            DataTable dt = new DataTable();
+            using var con = new SqlConnection(_configuration.GetConnectionString("AvianTranslatorCon"));
+            using var da = new SqlDataAdapter("SELECT * FROM Translation WHERE EnglishName = @EnglishName", con);
+            da.SelectCommand.Parameters.AddWithValue("@EnglishName", englishName);
+            using var dt = new DataTable();
             da.Fill(dt);
             List<Translations> translationList = new List<Translations>();
 
@@ -67,10 +66,12 @@ namespace AvianTranslator.Controllers
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Translations translation = new Translations();
-                    translation.DanishName = Convert.ToString(dt.Rows[i]["DanishName"]);
-                    translation.LatinName = Convert.ToString(dt.Rows[i]["LatinName"]);
-                    translation.EnglishName = Convert.ToString(dt.Rows[i]["EnglishName"]);
+                    Translations translation = new Translations
+                    {
+                        DanishName = (string)dt.Rows[i]["DanishName"],
+                        LatinName = (string)dt.Rows[i]["LatinName"],
+                        EnglishName = (string)dt.Rows[i]["EnglishName"],
+                    };
                     translationList.Add(translation);
                 }
             }
@@ -89,7 +90,7 @@ namespace AvianTranslator.Controllers
         [HttpGet("da/{danishName}")]
         public string getDanishTranslation(string danishName)
         {
-            SqlConnection con = new SqlConnection(_configuration.GetConnectionString("AvianTranslatorCon").ToString());
+            SqlConnection con = new SqlConnection(_configuration.GetConnectionString("AvianTranslatorCon"));
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Translation WHERE DanishName = '" + danishName + "'", con);
             DataTable dt = new DataTable();
             da.Fill(dt);

@@ -65,7 +65,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
       alwaysOn: true
       http20Enabled: true
       netFrameworkVersion: 'v7.0'
-      healthCheckPath: '/swagger/index.html'
+      healthCheckPath: '/api/translations()'
       appSettings:[
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
